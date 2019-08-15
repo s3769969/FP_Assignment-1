@@ -20,6 +20,33 @@ public enum BetType
             // TODO implementation COIN1 get result == COIN 1 spin result
          }
       },
+      COIN2{
+
+		@Override
+		public void applyWinLoss(Player player, CoinPair spinnerResult) {
+			// TODO Auto-generated method stub
+			
+		}
+    	  
+      },
+      BOTH{
+
+		@Override
+		public void applyWinLoss(Player player, CoinPair spinnerResult) {
+			// TODO Auto-generated method stub
+			
+		}
+    	  
+      },
+      NO_BET{
+
+		@Override
+		public void applyWinLoss(Player player, CoinPair spinnerResult) {
+			// TODO Auto-generated method stub
+			
+		}
+    	  
+      };
       
       // TODO finish this class with other enum constants
    
