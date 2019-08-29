@@ -14,6 +14,8 @@ public enum BetType
 {	
       COIN1
       {
+    	  /*Checks if player's 1st coin is equal to spinner's 1st coin after spinning and adds bet value
+    	  to player points. Else subtracts bet value from player points*/
          @Override
          public void applyWinLoss(Player player, CoinPair spinnerResult)
          {
@@ -24,8 +26,10 @@ public enum BetType
         	 }
          }
       },
-      COIN2{
-
+      COIN2
+      {
+    	  /*Checks if player's 1st coin is equal to spinner's 1st coin after spinning and adds bet value
+    	  to player points. Else subtracts bet value from player points*/
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) {
 			if (player.getResult().getCoin2().equals(spinnerResult.getCoin2())) {
@@ -36,7 +40,8 @@ public enum BetType
 		}   	  
       },
       BOTH{
-
+    	  /*Checks if player's 1st coin is equal to spinner's 1st coin AND player's 2nd coin is equal to spinner's
+    	  2nd coin after spinning adds twice bet value to player points. Else subtracts bet value from player points*/
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) {
 			if (player.getResult().equals(spinnerResult)) {
@@ -47,7 +52,7 @@ public enum BetType
 		}  	  
       },
       NO_BET{
-
+    	  //Does nothing as player is not betting this round
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) {		
 		}  

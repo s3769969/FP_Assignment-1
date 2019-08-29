@@ -10,6 +10,12 @@ import model.interfaces.GameEngine;
 import model.interfaces.Player;
 import view.interfaces.GameEngineCallback;
 
+/*
+ * Class:			GameEngineImpl
+ * Description:		The class represents a specific Game Engine with game logic
+ * Author:			Sebastian Wisidagama - s3769969
+ */
+
 public class GameEngineImpl implements GameEngine{
 	
 	private Collection<Player> players = new HashSet<Player>();

@@ -36,7 +36,7 @@ public class GameEngineCallbackImpl implements GameEngineCallback
     		  (coin.getFace() == CoinFace.HEADS) ? "Heads" : "Tails"));
    }
 
-   //logs player name and coin pair after both coins have landed
+   //logs player name and coin pair after both player's coins have landed
    public void playerResult(Player player, CoinPair coinPair, GameEngine engine)
    {
       // final results logged at Level.INFO
@@ -50,7 +50,7 @@ public class GameEngineCallbackImpl implements GameEngineCallback
 				(coin.getFace() == CoinFace.HEADS) ? "Heads" : "Tails"));	
 	}
 	
-	//logs all player details and results of betting round after both spinner coins have landed
+	//logs spinner coin pair results after both spinner's coins have landed AND all player details and results of betting round
 	@Override
 	public void spinnerResult(CoinPair coinPair, GameEngine engine) {
 		logger.log(Level.INFO, String.format(" Spinner, final result=%s", coinPair.toString()));
