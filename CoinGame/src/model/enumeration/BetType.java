@@ -11,44 +11,47 @@ import model.interfaces.Player;
  * 
  */
 public enum BetType
-{
+{	
       COIN1
       {
          @Override
          public void applyWinLoss(Player player, CoinPair spinnerResult)
          {
-            // TODO implementation COIN1 get result == COIN 1 spin result
+        	 if (player.getResult().getCoin1().equals(spinnerResult.getCoin1())) {
+        		 player.setPoints(player.getPoints() + player.getBet());
+        	 }else {
+        		 player.setPoints(player.getPoints() - player.getBet());
+        	 }
          }
       },
       COIN2{
 
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) {
-			// TODO Auto-generated method stub
-			
-		}
-    	  
+			if (player.getResult().getCoin2().equals(spinnerResult.getCoin2())) {
+				player.setPoints(player.getPoints() + player.getBet());
+       	 	}else {
+       	 		player.setPoints(player.getPoints() - player.getBet());
+       	 	}
+		}   	  
       },
       BOTH{
 
 		@Override
 		public void applyWinLoss(Player player, CoinPair spinnerResult) {
-			// TODO Auto-generated method stub
-			
-		}
-    	  
+			if (player.getResult().equals(spinnerResult)) {
+				player.setPoints(player.getPoints() + player.getBet()*2);
+			}else {
+       		 	player.setPoints(player.getPoints() - player.getBet());
+			}
+		}  	  
       },
       NO_BET{
 
 		@Override
-		public void applyWinLoss(Player player, CoinPair spinnerResult) {
-			// TODO Auto-generated method stub
-			
-		}
-    	  
+		public void applyWinLoss(Player player, CoinPair spinnerResult) {		
+		}  
       };
-      
-      // TODO finish this class with other enum constants
    
       /**
        * This method is to be overridden for each bet type<br>

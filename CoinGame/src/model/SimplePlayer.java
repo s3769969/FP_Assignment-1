@@ -8,15 +8,15 @@ public class SimplePlayer implements Player{
 
 	private String playerId;
 	private String playerName;
-	private int initialPoints;
 	private int points;
-	private int bet;
-	private BetType betType;
+	private int bet = 0;
+	private BetType betType = BetType.NO_BET;
+	private CoinPair result;
 	
 	public SimplePlayer(String playerId, String playerName, int initialPoints) {
 		this.playerId = playerId;
 		this.playerName = playerName;
-		this.initialPoints = initialPoints;
+		this.points = initialPoints;
 	}
 	
 	@Override
@@ -44,12 +44,15 @@ public class SimplePlayer implements Player{
 		return this.playerId;
 	}
 
+	/*Returns true if bet is greater than 1 and player has at least as many points.
+	Else, resets bet and returns false.*/
 	@Override
 	public boolean setBet(int bet) {
-		if (this.bet > bet && bet >= 0) {
+		if (points >= bet && bet > 0) {
 			this.bet = bet;
 			return true;
 		}
+		resetBet();
 		return false;
 	}
 
@@ -71,18 +74,24 @@ public class SimplePlayer implements Player{
 	@Override
 	public void resetBet() {
 		this.bet = 0;
+		this.betType = BetType.NO_BET;
 	}
 
 	@Override
 	public CoinPair getResult() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.result;
 	}
 
 	@Override
 	public void setResult(CoinPair coinPair) {
-		// TODO Auto-generated method stub
-		
+		this.result = coinPair;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Player: id=%s, name=%s, bet=%d, betType=%s,"
+				+ " points=%d, RESULT .. %s", playerId, playerName, bet, betType,
+				points, result);
 	}
 	
 }
