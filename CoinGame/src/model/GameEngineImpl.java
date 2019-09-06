@@ -126,8 +126,8 @@ public class GameEngineImpl implements GameEngine{
 	//Checks if any parameter is not valid and throws exception
 	private void validArgs(int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2,
 			int finalDelay2, int delayIncrement2) throws IllegalArgumentException{
-		if (initialDelay1 <= 0 || finalDelay1 <= 0 || delayIncrement1 <= 0 || initialDelay2 <= 0 || finalDelay2 <= 0 ||
-				delayIncrement2 <= 0 || finalDelay1 <= initialDelay1 || finalDelay2 <= initialDelay2 ||
+		if (initialDelay1 < 0 || finalDelay1 < 0 || delayIncrement1 <= 0 || initialDelay2 < 0 || finalDelay2 < 0 ||
+				delayIncrement2 <= 0 || finalDelay1 < initialDelay1 || finalDelay2 < initialDelay2 ||
 				delayIncrement1 > (finalDelay1 - initialDelay1) || delayIncrement2 > (finalDelay2 - initialDelay2) ) {
 			throw new IllegalArgumentException();
 		}

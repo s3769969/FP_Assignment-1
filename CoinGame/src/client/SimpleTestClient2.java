@@ -40,9 +40,11 @@ public class SimpleTestClient2
 	      Player[] players = new Player[] { 
 	    		  new SimplePlayer("1", "The Coin Master", 1000),
 	    		  new SimplePlayer("2", "The Loser", 750),
-	    		  new SimplePlayer("3", "The Dabbler", 500) };
+	    		  new SimplePlayer("3", "The Dabbler", 500),
+	    		  new SimplePlayer("1", "The New Guy", 1500) };
 
 	      // add logging callback
+	      gameEngine.addGameEngineCallback(new GameEngineCallbackImpl());
 	      gameEngine.addGameEngineCallback(new GameEngineCallbackImpl());
 	      gameEngine.getAllPlayers();
 
@@ -51,6 +53,8 @@ public class SimpleTestClient2
 	      for (Player player : players)
 	      {
 	         gameEngine.addPlayer(player);
+	         gameEngine.addPlayer(player);
+	         gameEngine.removePlayer(player);
 	         // mod with BetType length so we always stay in range even if num players increases
 	         // NOTE: we are passing a different BetType each time!
 	         gameEngine.placeBet(player, 100, BetType.values()[enumOrdinal++ % BetType
